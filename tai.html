@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ae984aaea1404d55b454f456206a0dd1 {
+                    position: relative;
+                    width: 840.0px;
+                    height: 472.5px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_ae984aaea1404d55b454f456206a0dd1" ></div>
+        
+</body>
+<script>    
+    
+            var map_ae984aaea1404d55b454f456206a0dd1 = L.map(
+                "map_ae984aaea1404d55b454f456206a0dd1",
+                {
+                    center: [36.2556, 117.1053],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_ae984aaea1404d55b454f456206a0dd1);
+
+            
+
+        
+    
+            var tile_layer_b115a5f342844d7daf84ca495343be80 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var tile_layer_4d9cabf663ce454e938c895fa78cd889 = L.tileLayer(
+                "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+                {"attribution": "\u00a9 \u003ca href=\"http://osm.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var macro_element_87c835ab072249118b52507ed1880f7a = L.tileLayer.wms(
+                "http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "ESRI World Imagery", "format": "image/jpeg", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var layer_control_a3283a07bac14d4d8dd8a9ab96b00243 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_b115a5f342844d7daf84ca495343be80,
+                    "CyclOSM" : tile_layer_4d9cabf663ce454e938c895fa78cd889,
+                },
+                overlays :  {
+                    "ESRI Imagery" : macro_element_87c835ab072249118b52507ed1880f7a,
+                },
+            };
+            L.control.layers(
+                layer_control_a3283a07bac14d4d8dd8a9ab96b00243.base_layers,
+                layer_control_a3283a07bac14d4d8dd8a9ab96b00243.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topleft"}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+            tile_layer_4d9cabf663ce454e938c895fa78cd889.remove();
+            macro_element_87c835ab072249118b52507ed1880f7a.remove();
+        
+    
+            var marker_ec6640e6c0b5497b8b302a5e2726a40c = L.marker(
+                [36.2556, 117.1053],
+                {}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var icon_baca8767ec8c4c3f9f7bb75519116eac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-star", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ec6640e6c0b5497b8b302a5e2726a40c.setIcon(icon_baca8767ec8c4c3f9f7bb75519116eac);
+        
+    
+        var popup_ae1fd0d7e5c74f338bf9fbc69bde63a4 = L.popup({"maxWidth": 110});
+
+        
+            var html_6e19dc415e00460bb71021069ea2c29f = $(`<div id="html_6e19dc415e00460bb71021069ea2c29f" style="width: 100.0%; height: 100.0%;">Jade Emperor Peak (1526 m a.s.l.)</div>`)[0];
+            popup_ae1fd0d7e5c74f338bf9fbc69bde63a4.setContent(html_6e19dc415e00460bb71021069ea2c29f);
+        
+
+        marker_ec6640e6c0b5497b8b302a5e2726a40c.bindPopup(popup_ae1fd0d7e5c74f338bf9fbc69bde63a4)
+        ;
+
+        
+    
+    
+            marker_ec6640e6c0b5497b8b302a5e2726a40c.bindTooltip(
+                `<div>
+                     Mont Tai
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_621d673dbe464a2eab187f38fe7591f7 = L.marker(
+                [36.167, 117.15],
+                {}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var icon_df2a14eeead447749094f08cf42bcea9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_621d673dbe464a2eab187f38fe7591f7.setIcon(icon_df2a14eeead447749094f08cf42bcea9);
+        
+    
+        var popup_c7907a24ce3f4fe192bb35db13d763ea = L.popup({"maxWidth": 110});
+
+        
+            var html_b3f0b61ee7574d20a0a4b30ecfa943a5 = $(`<div id="html_b3f0b61ee7574d20a0a4b30ecfa943a5" style="width: 100.0%; height: 100.0%;">Tai-An meteorological station</div>`)[0];
+            popup_c7907a24ce3f4fe192bb35db13d763ea.setContent(html_b3f0b61ee7574d20a0a4b30ecfa943a5);
+        
+
+        marker_621d673dbe464a2eab187f38fe7591f7.bindPopup(popup_c7907a24ce3f4fe192bb35db13d763ea)
+        ;
+
+        
+    
+    
+            marker_621d673dbe464a2eab187f38fe7591f7.bindTooltip(
+                `<div>
+                     Tai-An city
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a304ffd50a214b7aa1639a8977849a60 = L.marker(
+                [36.25, 117.1],
+                {}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var icon_eb4bd826aaf64163a7350d8b21c509a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-cloud", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a304ffd50a214b7aa1639a8977849a60.setIcon(icon_eb4bd826aaf64163a7350d8b21c509a0);
+        
+    
+        var popup_6b707ac44b2e434dad701327a10de8b2 = L.popup({"maxWidth": 110});
+
+        
+            var html_6a50f7d80bb5435394de0c98599a9738 = $(`<div id="html_6a50f7d80bb5435394de0c98599a9738" style="width: 100.0%; height: 100.0%;">Tai-Shan meteorological station</div>`)[0];
+            popup_6b707ac44b2e434dad701327a10de8b2.setContent(html_6a50f7d80bb5435394de0c98599a9738);
+        
+
+        marker_a304ffd50a214b7aa1639a8977849a60.bindPopup(popup_6b707ac44b2e434dad701327a10de8b2)
+        ;
+
+        
+    
+    
+            marker_a304ffd50a214b7aa1639a8977849a60.bindTooltip(
+                `<div>
+                     Mont Tai
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4ee6a11bd321456aa7411fd0a0b3e1ad = L.marker(
+                [36.176, 117.108],
+                {}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var icon_ebcb3060b4cd4926a203afd410b0e78c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-leaf", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_4ee6a11bd321456aa7411fd0a0b3e1ad.setIcon(icon_ebcb3060b4cd4926a203afd410b0e78c);
+        
+    
+        var popup_42fa10db0b94488e90a07fa9014d2d07 = L.popup({"maxWidth": 110});
+
+        
+            var html_6e16a7318ced4a8681cd9c648510bdd9 = $(`<div id="html_6e16a7318ced4a8681cd9c648510bdd9" style="width: 100.0%; height: 100.0%;">Electric School field site</div>`)[0];
+            popup_42fa10db0b94488e90a07fa9014d2d07.setContent(html_6e16a7318ced4a8681cd9c648510bdd9);
+        
+
+        marker_4ee6a11bd321456aa7411fd0a0b3e1ad.bindPopup(popup_42fa10db0b94488e90a07fa9014d2d07)
+        ;
+
+        
+    
+    
+            marker_4ee6a11bd321456aa7411fd0a0b3e1ad.bindTooltip(
+                `<div>
+                     Tai-An city
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_87e5e7fd6b5b411c8640d9867d45ba42 = L.marker(
+                [36.267, 117.1],
+                {}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+            var icon_8c14afebda1b4a52972718cc04dbe585 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-leaf", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_87e5e7fd6b5b411c8640d9867d45ba42.setIcon(icon_8c14afebda1b4a52972718cc04dbe585);
+        
+    
+        var popup_9e7c92276c5d48d88934a4c7a6952a7b = L.popup({"maxWidth": 110});
+
+        
+            var html_51bfc1ccb9b8435f9908d45ebfa7f697 = $(`<div id="html_51bfc1ccb9b8435f9908d45ebfa7f697" style="width: 100.0%; height: 100.0%;">Mont. Tai field site</div>`)[0];
+            popup_9e7c92276c5d48d88934a4c7a6952a7b.setContent(html_51bfc1ccb9b8435f9908d45ebfa7f697);
+        
+
+        marker_87e5e7fd6b5b411c8640d9867d45ba42.bindPopup(popup_9e7c92276c5d48d88934a4c7a6952a7b)
+        ;
+
+        
+    
+    
+            marker_87e5e7fd6b5b411c8640d9867d45ba42.bindTooltip(
+                `<div>
+                     Mont Tai
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var tile_layer_afb679ab395044f39dd11d90679e1b68 = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_886aef91226641b1b0375007a6277246 = new L.Control.MiniMap(
+                tile_layer_afb679ab395044f39dd11d90679e1b68,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 180, "minimized": false, "position": "bottomright", "toggleDisplay": true, "width": 180, "zoomAnimation": false, "zoomLevelOffset": -6}
+            );
+            map_ae984aaea1404d55b454f456206a0dd1.addControl(mini_map_886aef91226641b1b0375007a6277246);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": false, "position": "topright", "title": "Full Screen", "titleCancel": "Exit Full Screen"}
+            ).addTo(map_ae984aaea1404d55b454f456206a0dd1);
+        
+    
+                var lat_lng_popup_09d6de405f0d463390d8d9eaadab4e39 = L.popup();
+                function latLngPop(e) {
+                    lat_lng_popup_09d6de405f0d463390d8d9eaadab4e39
+                        .setLatLng(e.latlng)
+                        .setContent("Latitude: " + e.latlng.lat.toFixed(4) +
+                                    "<br>Longitude: " + e.latlng.lng.toFixed(4))
+                        .openOn(map_ae984aaea1404d55b454f456206a0dd1);
+                    }
+                map_ae984aaea1404d55b454f456206a0dd1.on('click', latLngPop);
+            
+</script>
